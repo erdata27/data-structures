@@ -2,17 +2,18 @@ class Node:
       def __init__(self,data):
             self.data=data
             self.next=None
-      def get_data(self):
-            return self.data
-      def get_next(self):
-            return self.next
-      def set_next(self,next_node):
-            self.next=next_node
 class Linked_List:
       def __init__(self,node):
             self.head=node
             self.next=None
-      def append(self,new_node):
+      def append(self,data):
+            nnode=Node(data)
+            if self.head!=None:
+               current = self.head
+               while current.next != None:
+                  current = current.next
+            current.next = nnode
+      def insert_at_end(self,new_node):
             if self.head==None: #if head is None then return string 
                   return 'memory allocation failed'
             elif self.head!=None:# else if head!=None then traverse linked list till current reaches the last 
@@ -133,24 +134,6 @@ class Linked_List:
                   current=current.next
             return current.data
       
-
-
-n1=Node(1)
-n2=Node(3)
-n3=Node(6)
-n4=Node(8)
-n5=Node(9)
-n6=Node(20)
-n7=Node(90)
-LL=Linked_List(n1)
-LL.insertion_at_end(n2)
-LL.insertion_at_end(n3)
-LL.insertion_at_end(n4)
-LL.insertion_at_end(n5)
-LL.insertion_at_end(n6)
-#LL.insertion_at_end(n7)
-LL.display()
-print(LL.print_middle())
 
 
                   
