@@ -12,7 +12,7 @@ class Linked_List:
       def __init__(self,node):
             self.head=node
             self.next=None
-      def insertion_at_end(self,new_node):
+      def append(self,new_node):
             if self.head==None: #if head is None then return string 
                   return 'memory allocation failed'
             elif self.head!=None:# else if head!=None then traverse linked list till current reaches the last 
@@ -111,7 +111,29 @@ class Linked_List:
                   current.next=prev
                   prev=current
                   current=next
-            self.head=prev     
+            self.head=prev  
+      def deleteLL(self):
+            self.head=None
+            return  
+      def nth_node(self,n): 
+            current=self.head
+            for i in range(n-1):
+                  current=current.next
+            return current
+      def nth_from_last_node(self,n):
+            l=self.i_length()
+            current=self.head
+            for i in range(l-n):
+                  current=current.next
+            return current.data
+      def print_middle(self):
+            l=self.i_length()
+            current=self.head
+            for i in range((l//2)):
+                  current=current.next
+            return current.data
+      
+
 
 n1=Node(1)
 n2=Node(3)
@@ -119,14 +141,16 @@ n3=Node(6)
 n4=Node(8)
 n5=Node(9)
 n6=Node(20)
+n7=Node(90)
 LL=Linked_List(n1)
 LL.insertion_at_end(n2)
 LL.insertion_at_end(n3)
 LL.insertion_at_end(n4)
 LL.insertion_at_end(n5)
 LL.insertion_at_end(n6)
-LL.reverseLL()
+#LL.insertion_at_end(n7)
 LL.display()
+print(LL.print_middle())
 
 
                   
