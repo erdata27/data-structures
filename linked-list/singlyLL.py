@@ -5,7 +5,8 @@ class Node:
 class Linked_List:
       def __init__(self,node):
             self.head=node
-            self.next=None
+            self.head.next=None
+
       def append(self,data):
             nnode=Node(data)
             if self.head!=None:
@@ -133,7 +134,15 @@ class Linked_List:
             for i in range((l//2)):
                   current=current.next
             return current.data
-      
+
+
+LL=Linked_List(Node(8))
+LL.append(3)
+LL.append(5)
+LL.append(1)
+LL.append(3)
+LL.append(5)
+LL.display() 
 
 
                   
