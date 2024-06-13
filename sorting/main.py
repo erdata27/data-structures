@@ -15,3 +15,36 @@ def selectionsort(L):#time complexity of this algorithm is O(n^2)
        #now L[:i+1] is sorted 
     return L
 
+def insertionsort(L):
+    n=len(L)
+    if n<1:#if the list is empty return L
+       return L
+    for i in range(n):
+       #assume that L[:i] is sorted 
+       #move L[i] to correct position in L 
+       j=i
+       while(j>0 and L[j]<L[j-1]):
+         (L[j],L[j-1])=(L[j-1],L[j])
+         j=j-1
+       #now L[:i+1] is sorted
+    return L 
+
+def insert(L,v):
+   n=len(L)
+   if n==0: # if list is empty return L
+      return L
+   if v>L[-1]: #if v is larger then Last element append it to list 
+      return L+[v]
+   else:
+      return insert(L[:-1],v)+L[-1:] #if v is less than last recursively do above step compare with last elem of L[:-1] i.e L[-2] if it is larger than that append like above if not repeat this step 
+
+def Isort(L):
+   n=len(L)
+   if n<1: # base condition 
+      return L
+   L=insert(Isort(L[:-1]),L[-1]) # trying to insert L[-1] in inductively sorted L[:-1]
+   return L
+   
+     
+          
+   
