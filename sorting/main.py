@@ -45,6 +45,37 @@ def Isort(L):
    L=insert(Isort(L[:-1]),L[-1]) # trying to insert L[-1] in inductively sorted L[:-1]
    return L
    
-     
+def merge(A,B):
+   (m,n)=(len(A),len(B))
+   (C,i,j,k)=([],0,0,0)
+   while k<m+n:
+      if i==m:#A is exhausted
+         C.extend(B[j:]) #copy all B values into C
+         k=k+n-j
+      elif j==n:#B is exhausted
+         C.extend(A[i:])#copy all A values into C
+         k=k+m-i
+      elif A[i]<B[j]:
+         C.append(A[i])
+         (i,k)=(i+1,k+1)
+      elif B[j]<A[i]:
+         C.append(B[j])
+         (j,k)=(j+1,k+1)
+   return C 
+
+def mergesort(A):
+   n=len(A)
+   if n<=1: #base case 
+      return A
+   L=mergesort(A[ :n//2]) # sorted left half of A
+   R=mergesort(A[n//2: ])#sorted right half of A
+   B=merge(L,R)# merging two sorted lists
+   return B
+ 
+print(mergesort([1,222,3,31,2,10,90]))
+
+
+
+
           
    
