@@ -106,8 +106,19 @@ def Quickort(L,l,r):# sort L[l:r]
    #recursive calls to sort lowersegment and upper segment 
    Quickort(L,l,lower) 
    Quickort(L,lower+1,r)
-
-
+import random
+def randomised_Quickort(L):
+   n=len(L)
+   if n<=1:
+      return L
+   else:
+      pivot_index=random.randint(0,n-1)
+      pivot=L[pivot_index]
+      lower=[x for x in L if x < pivot]
+      upper=[x for x in L if x>pivot]
+      equal=[x for x in L if x==pivot]
+      return randomised_Quickort(lower)+equal+randomised_Quickort(upper)
+   
 
 
 
