@@ -72,7 +72,23 @@ def mergesort(A):
    B=merge(L,R)# merging two sorted lists
    return B
  
-print(mergesort([1,222,3,31,2,10,90]))
+def bubblesort(L):
+   n=len(L)
+   #traverse the list 
+   for i in range(n):
+      #track if any swapping happens
+      swapped=True
+      for j in range(0,n-i-1):
+         #traverse the list till n-i-1
+         #swap if the element found is greater than next 
+         if L[j]>L[j+1]:
+            (L[j],L[j+1])=(L[j+1],L[j])
+      #if no two elements are swapped in the inner loop then list is sorted 
+      if not swapped:
+         break
+   return L
+
+
 
 
 
