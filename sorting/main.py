@@ -78,8 +78,8 @@ def bubblesort(L):
    for i in range(n):
       #track if any swapping happens
       swapped=True
-      for j in range(0,n-i-1):
-         #traverse the list till n-i-1
+      for j in range(0,n-1-i):
+         #traverse the list till n-1-i
          #swap if the element found is greater than next 
          if L[j]>L[j+1]:
             (L[j],L[j+1])=(L[j+1],L[j])
@@ -88,6 +88,24 @@ def bubblesort(L):
          break
    return L
 
+def Quickort(L,l,r):# sort L[l:r]
+   if r-l<=1: # check if slice has atmost one elem,this is the base condition
+      return L
+   # intialise pivot,lower pointer and upper pointer
+   (pivot,lower,upper)=(L[l],l+1,l+1)
+   
+   for i in range(l+1,r):
+      if L[i]>pivot:#if elem in unclassified is greater than pivot then extend upper
+         upper=upper+1
+      else:#if not i.e <pivot then swap L[i],L[lower]   example: 43,<<32,<<22,>>78{lower},>>63,>>57,>>91,<<13{upper}here pivot is 43,<< is lower ,>>is upper and 13 should be wapped with begin elem of upper i.e at index lower 
+         (L[i],L[lower])=(L[lower],L[i])
+         (lower,upper)=(lower+1,upper+1)
+   #swap pivot and and last lower elem  to make Lower-elems Pivot  upper-elems
+   (L[pivot],L[lower-1])=(L[lower-1],L[pivot])
+   lower=lower-1 # make lower to point elem before pivot after swaping
+   #recursive calls to sort lowersegment and upper segment 
+   Quickort(L,l,lower) 
+   Quickort(L,lower+1,r)
 
 
 
