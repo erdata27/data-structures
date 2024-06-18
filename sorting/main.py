@@ -55,10 +55,10 @@ def merge(A,B):
       elif j==n:#B is exhausted
          C.extend(A[i:])#copy all A values into C
          k=k+m-i
-      elif A[i]<B[j]:
+      elif A[i]<=B[j]:
          C.append(A[i])
          (i,k)=(i+1,k+1)
-      elif B[j]<A[i]:
+      elif B[j]<=A[i]:
          C.append(B[j])
          (j,k)=(j+1,k+1)
    return C 
@@ -106,21 +106,7 @@ def Quickort(L,l,r):# sort L[l:r]
    #recursive calls to sort lowersegment and upper segment 
    Quickort(L,l,lower) 
    Quickort(L,lower+1,r)
-import random
-def randomised_Quickort(L):
-   n=len(L)
-   if n<=1:
-      return L
-   else:
-      pivot_index=random.randint(0,n-1)
-      pivot=L[pivot_index]
-      lower=[x for x in L if x < pivot]
-      upper=[x for x in L if x>pivot]
-      equal=[x for x in L if x==pivot]
-      return randomised_Quickort(lower)+equal+randomised_Quickort(upper)
-   
 
 
 
-          
-   
+print(mergesort([2,2,33,4,2,22,56,90,45]))
