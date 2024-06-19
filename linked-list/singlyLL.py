@@ -4,8 +4,10 @@ class Node:
             self.next=None
 class Linked_List:
       def __init__(self,node):
-            self.head=node
-            self.head.next=None
+          def __init__(self, node=None):
+              self.head = node
+              if node:
+                 self.head.next = None
 
       def append(self,data):
             nnode=Node(data)

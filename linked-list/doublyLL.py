@@ -5,10 +5,8 @@ class Node:
         self.next = None
 
 class DoublyLinkedList:
-    def __init__(self,node):
-        self.head = node
-        self.head.prev = None
-        self.head.next = None
+    def __init__(self):
+        self.head =None
 
     def append(self, data):
         new_node = Node(data)
