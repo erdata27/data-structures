@@ -43,7 +43,7 @@ class CircularLinkedList:
             temp = temp.next
             if temp == self.head:
                 break
-        print("Circular Linked List:", " -> ".join(map(str, nodes)), "(head -> ... -> head)")
+        print("Circular Linked List:", " -> ".join(map(str, nodes))," -> ",self.head.data,"(head)")
 
     def delete(self, key):
         if self.head:
