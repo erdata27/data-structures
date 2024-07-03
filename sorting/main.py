@@ -77,12 +77,13 @@ def bubblesort(L):
    #traverse the list 
    for i in range(n):
       #track if any swapping happens
-      swapped=True
+      swapped=False
       for j in range(0,n-1-i):
          #traverse the list till n-1-i
          #swap if the element found is greater than next 
          if L[j]>L[j+1]:
             (L[j],L[j+1])=(L[j+1],L[j])
+             swapped=True
       #if no two elements are swapped in the inner loop then list is sorted 
       if not swapped:
          break
