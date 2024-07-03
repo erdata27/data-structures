@@ -55,11 +55,6 @@ def r_binary_search(L, key, left, right):
     else:
         return r_binary_search(L, key, mid + 1, right)
 
-    if(left-right<0):
-        return False
-    
-    return False  
-
 
 L=[1,2,11,312,554,999,9100]
 print(r_binary_search(L,0,0,len(L)-1))
