@@ -34,6 +34,7 @@ def bsearch(key,L):#time complexity of this method is O(logn)
         return bsearch(key,L[mid+1:])
     else:
         return bsearch(key,L[:mid])
+
 def r_binary_search(L,key,left,right):
     mid=left+right//2
 
@@ -54,6 +55,29 @@ def r_binary_search(L,key,left,right):
             return r_binary_search(L,key,mid+1,right)
         if(key<L[mid]):
             return r_binary_search(L,key,left,mid-1)
+
+    if(left-right<0):
+        return False
+    
+    return False  
+
+def r_binary_search(L, key, left, right):
+    #base case 
+    if left > right:
+        return False
+    
+    # Calculate mid-point
+    mid = (left + right) // 2
+    
+    # Check if the mid-point element is the key
+    if L[mid] == key:
+        return True
+    
+    # Decide which half to recurse into
+    if key < L[mid]:
+        return r_binary_search(L, key, left, mid - 1)
+    else:
+        return r_binary_search(L, key, mid + 1, right)
 
     if(left-right<0):
         return False
