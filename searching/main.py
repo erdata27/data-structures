@@ -13,7 +13,7 @@ def i_binary_search(L,key):#time complexity of this code is O(logn)
     left=0
     right=n-1
     while(right-left>1):#loop condition is if left,right are not concecutiv, get into the loop
-        mid=left+right//2
+        mid=(left+right)//2
         if key==L[mid]:
             return True 
         elif key>L[mid]:
