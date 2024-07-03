@@ -35,31 +35,7 @@ def bsearch(key,L):#time complexity of this method is O(logn)
     else:
         return bsearch(key,L[:mid])
 
-def r_binary_search(L,key,left,right):
-    mid=left+right//2
 
-    if(left==right):
-        if(L[left]==key):
-            return True
-        return False
-
-    if(right-left==1):
-        if(L[left]==key or L[right]==key):
-            return True
-        return False
-
-    if(right-left>1):
-        if(L[mid]==key):
-            return True
-        if(key>L[mid]):
-            return r_binary_search(L,key,mid+1,right)
-        if(key<L[mid]):
-            return r_binary_search(L,key,left,mid-1)
-
-    if(left-right<0):
-        return False
-    
-    return False  
 
 def r_binary_search(L, key, left, right):
     #base case 
