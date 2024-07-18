@@ -26,14 +26,13 @@ class STree:
         return(str(self.inorder()))
     # Check if value v occurs in tree
     def search(self,v):
-        if self.isempty():
-            return(False)
         if self.value == v:
             return(True)
         if v < self.value:
             return(self.left.search(v))
         if v > self.value:
             return(self.right.search(v))
+        return False
     # return minimum value for tree rooted on self - Minimum is left most node in the tree
     def minval(self):
         if self.left.isempty():
