@@ -21,19 +21,19 @@ class STree:
             return([])
         else:
             return(self.left.inorder()+[self.value]+self.right.inorder())
-        # Display Tree as a string
+    # Display Tree as a string
     def __str__(self):
         return(str(self.inorder()))
     # Check if value v occurs in tree
-    def find(self,v):
+    def search(self,v):
         if self.isempty():
             return(False)
         if self.value == v:
             return(True)
         if v < self.value:
-            return(self.left.find(v))
+            return(self.left.search(v))
         if v > self.value:
-            return(self.right.find(v))
+            return(self.right.search(v))
     # return minimum value for tree rooted on self - Minimum is left most node in the tree
     def minval(self):
         if self.left.isempty():
@@ -110,6 +110,6 @@ for i in bst:
 print('Element in BST are:= ',T.inorder())
 print('Maximum element in BST are:= ',T.maxval())
 print('Minimum element in BST are:= ',T.minval())
-print(k,'is present or not = ',T.find(k))
+print(k,'is present or not = ',T.search(k))
 T.delete(3)
 print('Element in BST after delete 3:= ',T.inorder())
