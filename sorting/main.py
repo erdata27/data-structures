@@ -89,7 +89,7 @@ def bubblesort(L):
          break
    return L
 
-def Quickort(L,l,r):# sort L[l:r]
+def Quicksort(L,l,r):# sort L[l:r]
    if r-l<=1: # check if slice has atmost one elem,this is the base condition
       return L
    # intialise pivot,lower pointer and upper pointer
@@ -105,8 +105,8 @@ def Quickort(L,l,r):# sort L[l:r]
    (L[pivot],L[lower-1])=(L[lower-1],L[pivot])
    lower=lower-1 # make lower to point elem before pivot after swaping
    #recursive calls to sort lowersegment and upper segment 
-   Quickort(L,l,lower) 
-   Quickort(L,lower+1,r)
+   Quicksort(L,l,lower) 
+   Quicksort(L,lower+1,r)
 
 
 
